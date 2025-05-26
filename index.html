@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Продажа дров</title>
+<style>
+  /* Общие стили */
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Шапка сайта */
+  header {
+    position: relative;
+    background-color: #1f1f1f;
+    padding: 20px;
+  }
+
+  /* Кнопки в шапке */
+  .top-right-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+  .top-right-btn:hover {
+    background-color: #555;
+  }
+
+  /* Основной контент */
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px);
+    text-align: center;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 30px;
+    color: #ffd700; /* золотой цвет для акцента */
+  }
+
+  /* Кнопки под заголовком */
+  .buttons-container {
+    display: flex;
+    gap: 30px;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary {
+    background-color: #ff8c00; /* тёмно-оранжевый */
+}
+
+.btn-primary:hover {
+    background-color: #ffa500; /* оранжевый */
+}
+
+.btn-secondary {
+    background-color: #444; /* тёмно-серый */
+}
+
+.btn-secondary:hover {
+    background-color: #666; 
+}
+
+/* Стиль для страниц внутри сайта (магазин, доставка, информация) */
+.page-container {
+   max-width:800px; 
+   margin:auto; 
+   padding :40px; 
+   background:#222; 
+   border-radius :10px; 
+   box-shadow :0px 0px 20px rgba(0,0,0,0.5);
+}
+
+/* Заголовки внутри страниц */
+.page-container h2 {
+   text-align:center; 
+   margin-bottom :30px; 
+   font-size :2em; 
+   color:#ffd700; 
+}
+
+/* Таблица цен и доставки */
+table {
+   width :100%; 
+   border-collapse :collapse; 
+   margin-bottom :30px; 
+}
+th, td {
+   padding :15px; 
+   border :1px solid #555; 
+   text-align:center; 
+}
+th {
+   background-color:#333; 
+}
+td {
+   background-color:#222; 
+}
+
+/* Кнопки внутри страниц (вернуться домой, заказать) */
+.page-btns {
+   display:flex; 
+   justify-content:center; 
+   gap :20px; 
+}
+.page-btns button {
+   padding :12px 25px; 
+   font-size :1em; 
+}
+</style>
+</head>
+<body>
+
+<!-- Шапка сайта -->
+<header>
+<button class="top-right-btn" onclick="location.href='index.html'">Информация о дровах</button>
+</header>
+
+<!-- Главная страница -->
+<div class="main" id="home">
+<h1>Продажа дров оптом</h1>
+<div class="buttons-container">
+<button class="btn btn-primary" onclick="openPage('magazin')">Магазин</button>
+<button class="btn btn-secondary" onclick="openPage('dostavka')">Доставка</button>
+</div>
+</div>
+
+<!-- Магазин -->
+<div id="magazin" style="display:none;">
+<div class="page-container">
+<h2>Магазин</h2>
+<table>
+<tr><th>Пакеты</th><th>Цена (руб)</th></tr>
+<tr><td>100 упаковок</td><td>19.000</td></tr>
+<tr><td>200 упаковок</td><td>37.500</td></tr>
+</table>
+<div class="page-btns">
+<button class="btn btn-secondary" onclick="goHome()">Вернуться домой</button>
+<a href="https://t.me/sss757" target="_blank"><button class="btn btn-primary">Заказать сейчас</button></a>
+</div>
+</div>
+</div>
+
+<!-- Доставка -->
+<div id="dostavka" style="display:none;">
+<div class="page-container">
+<h2>Доставка по Краснодарскому краю и за его пределами</h2>
+<table>
+<tr><th>Расстояние / Регион</th><th>Цена за км (руб)</th></tr>
+<tr><td>По Краснодарскому краю</td><td>85 руб.</td></tr>
+<tr><td>За Краснодарским краем</td><td>105 руб.</td></tr>
+</table>
+<div class="page-btns">
+<button class="btn btn-secondary" onclick="goHome()">Вернуться домой</button>
+</div>
+</div>
+</div>
+
+<!-- Информация о дровах -->
+<div id="info" style="display:none;">
+<div class="page-container">
+<h2>Информация о дровах</h2>
+<p style="font-size:1.2em;">Сухие качественные дрова хорошо горят. В наличии:</p>
+<ul style="font-size:1.2em;">
+<li>Ольха</li>
+<li>Дуб</li>
+<li>Сосна</li>
+<li>Берёза и другие породы.</li>
+</ul>
+<div class="page-btns">
+<button class="btn btn-secondary" onclick="goHome()">Вернуться домой</button>
+</div>
+</div>
+</div>
+
+<script>
+// Функция для открытия нужной страницы
+function openPage(pageId) {
+ document.getElementById('home').style.display = 'none';
+ document.getElementById('magazin').style.display = 'none';
+ document.getElementById('dostavka').style.display = 'none';
+ document.getElementById('info').style.display = 'none';
+
+ document.getElementById(pageId).style.display = 'block';
+}
+
+// Функция для возврата на главную страницу
+function goHome() {
+ document.getElementById('home').style.display = 'flex';
+ document.getElementById('magazin').style.display = 'none';
+ document.getElementById('dostavka').style.display = 'none';
+ document.getElementById('info').style.display = 'none';
+}
+ </script>
+
+<!-- Изначально показываем главную страницу -->
+<script>
+// при загрузке страницы показываем главную
+window.onload = function() { goHome(); }
+</script>
+
+</body>
+</html>
